@@ -8,7 +8,7 @@ class Products extends Component {
       <div>
         <ul className="products">
           {products.map((product, index) => (
-            <li key="index">
+            <li key={index}>
               <div className="product">
                 <a href={`#${product._id}`}>
                   <img src={product.image} alt={product.title} />
