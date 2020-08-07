@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div className="grid-container">
         <header>
-          <a href="/">React Shopping Cart</a>
+          <a href="/">Shopping Cart</a>
         </header>
         <main>
           <div className="content">
