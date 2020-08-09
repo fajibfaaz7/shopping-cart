@@ -30,6 +30,10 @@ class Filter extends Component {
             <option value="XL">XL</option>
             <option value="XXL">XXL</option>
           </select>
+          <input
+            type="checkbox"
+            onChange={(event) => this.props.check(event.target.checked)}
+          />
         </div>
       </div>
     );

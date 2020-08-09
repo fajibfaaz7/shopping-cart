@@ -130,3 +130,53 @@ footer {
 .filter div {
   flex: 1;
 }
+
+.cart {
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+}
+.cart-header {
+  border-bottom: 0.1rem #c0c0c0 solid;
+}
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+.item-top {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.item-top img {
+  width: 5rem;
+  /* height: 6rem; */
+  object-fit: contain;
+  margin-right: 1rem;
+}
+.item-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.item-price {
+  margin-right: 0.6rem;
+  font-weight: 500;
+}
+
+.cart-total {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-total h2 {
+  font-weight: 100;
+  font-size: 2rem;
+}
+.cart-total > h2,
+.cart-total button {
+  flex: 1;
+}
