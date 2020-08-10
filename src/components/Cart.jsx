@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import formatCurrency from "./../util";
+import Fade from "react-reveal/Fade";
 
 class Cart extends Component {
   constructor(props) {
@@ -34,27 +35,29 @@ class Cart extends Component {
             : `You have ${cartItems.length} items in cart`}
         </div>
         <div className="cart">
-          <ul className="cart-items">
-            {cartItems.map((item, index) => (
-              <li key={index}>
-                <div className="item-top">
-                  <img src={item.image} alt={item.title} />
-                  <div>{item.title}</div>
-                </div>
-                <div className="item-bottom">
-                  <div className="item-price">
-                    {formatCurrency(item.price)} x {item.count}
+          <Fade left cascade>
+            <ul className="cart-items">
+              {cartItems.map((item, index) => (
+                <li key={index}>
+                  <div className="item-top">
+                    <img src={item.image} alt={item.title} />
+                    <div>{item.title}</div>
                   </div>
-                  <button
-                    onClick={() => this.props.removeFromCart(item)}
-                    className="button"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+                  <div className="item-bottom">
+                    <div className="item-price">
+                      {formatCurrency(item.price)} x {item.count}
+                    </div>
+                    <button
+                      onClick={() => this.props.removeFromCart(item)}
+                      className="button"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Fade>
         </div>
         {cartItems.length !== 0 && (
           <div>
@@ -79,40 +82,42 @@ class Cart extends Component {
             </div>
             {this.state.showCheckout && (
               <div className="form-container">
-                <form onSubmit={this.createOrder}>
-                  <div className="form-body">
-                    <label htmlFor="email">Email</label>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      onChange={this.handleInput}
-                    />
-                  </div>
-                  <div className="form-body">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      name="name"
-                      type="text"
-                      required
-                      onChange={this.handleInput}
-                    />
-                  </div>
-                  <div className="form-body">
-                    <label htmlFor="address">Address</label>
-                    <textarea
-                      name="address"
-                      type="text"
-                      required
-                      onChange={this.handleInput}
-                    />
-                  </div>
-                  <div className="form-body">
-                    <button className="button primary" type="submit">
-                      Place Order
-                    </button>
-                  </div>
-                </form>
+                <Fade right cascade>
+                  <form onSubmit={this.createOrder}>
+                    <div className="form-body">
+                      <label htmlFor="email">Email</label>
+                      <input
+                        name="email"
+                        type="email"
+                        required
+                        onChange={this.handleInput}
+                      />
+                    </div>
+                    <div className="form-body">
+                      <label htmlFor="name">Name</label>
+                      <input
+                        name="name"
+                        type="text"
+                        required
+                        onChange={this.handleInput}
+                      />
+                    </div>
+                    <div className="form-body">
+                      <label htmlFor="address">Address</label>
+                      <textarea
+                        name="address"
+                        type="text"
+                        required
+                        onChange={this.handleInput}
+                      />
+                    </div>
+                    <div className="form-body">
+                      <button className="button primary" type="submit">
+                        Place Order
+                      </button>
+                    </div>
+                  </form>
+                </Fade>
               </div>
             )}
           </div>
